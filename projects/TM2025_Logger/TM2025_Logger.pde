@@ -778,9 +778,8 @@ static void ProcessSample () {
    NextValue = 0;
    }
 
-#define RF_IDLE_MODE    0x820D
-#define RF_SLEEP_MODE   0x8205
-#define RF_WAKEUP_MODE  0x8207
+#define RF_GOTO_SLEEP 0
+#define RF_WAKE_UP -1
 
 static void ProcessSerialInput (char c) {
    unsigned int rm;
@@ -793,10 +792,12 @@ static void ProcessSerialInput (char c) {
          switch (c) {
             case 'a': // turn activity LED on or off
                SetLed (RED_LED, InputValue);
-               if (InputValue == 1) 
-                  rf12_control(RF_SLEEP_MODE);
+               if (InputValue == 1) {
+                  rf12_sleep(RF_GOTO_SLEEP);
+                  Sprintln ("put the radio to sleep");
+                  }
                else
-                  rf12_control(RF_WAKEUP_MODE);
+                  rf12_sleep(RF_WAKE_UP);
                break;
             case 'b': // set band: 4 = 433, 8 = 868, 9 = 915
                InputValue = InputValue == 8 ? RF12_868MHZ :
@@ -1170,21 +1171,21 @@ void setup () {
    switch (RunMode) {
       case NotLogging:
          ShowHelp ();
-         Sprint ("\nCurrent radio configuration: ");
          break;
       case LoggingWithMonitor:
          Sprintln ("Logging with monitor (use '!' to get command mode)");
-         Sprint ("Current radio configuration: ");
          break;
       case LoggingWithoutMonitor:
          Sprintln ("Logging w/o monitor (use '!' to get command mode)");
-         Sprint ("Current radio configuration: ");
          break;
       }
+   /*
    if (!SD.begin(9)) {
       Serial.println ("SD card initialization failed!");
       SetLed (RED_LED, ON);
       }
+   */
+   Sprint ("\nCurrent radio configuration: ");
    rf12_config();
    }
 
@@ -1260,7 +1261,7 @@ void loop () {
       }
 
    if (rf12_recvDone()) {
-      //Sprintln ("Rcvd new wireless packet");
+      Sprintln ("Rcvd new wireless packet");
       if (rf12_crc != 0) 
          if (quiet)
             return;
@@ -1278,7 +1279,7 @@ void loop () {
       Length = rf12_len;
       for (byte i = 0; i < Length; ++i) 
          testbuf[i] = rf12_data[i];
-      //PrintPacket (Group, Header, Length);
+      PrintPacket (Group, Header, Length);
       if ((rf12_crc == 0) && (Header & RF12_HDR_ACK)) 
          AckRequested = 1;
       else 

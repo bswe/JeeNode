@@ -15,6 +15,10 @@
 #define LED_P1A_PIN     14   // activity LED on port 1 pin AIO
 #define LED_P2D_PIN     5    // activity LED on port 2 pin DIO
 #define LED_P2A_PIN     15   // activity LED on port 2 pin AIO
+#define LED_P3D_PIN     6    // activity LED on port 3 pin DIO
+#define LED_P3A_PIN     16   // activity LED on port 3 pin AIO
+#define LED_P4D_PIN     7    // activity LED on port 4 pin DIO
+#define LED_P4A_PIN     17   // activity LED on port 4 pin AIO
 #define ON              1
 #define OFF             0
 
@@ -40,16 +44,15 @@ static char LogBfr[LOG_BFR_SIZE];
 static byte LogBfrIndex = 0;
 
 
-static void SetLed (byte Port, byte On) {
-   pinMode (Port, OUTPUT);
-   digitalWrite (Port, !On);
+static void SetLed (byte Port, byte State) {
+   digitalWrite (Port, !State);
    }
 
 
-static void BlinkLed (byte Port, byte On, int Duration) {
-   SetLed (Port, On);
+static void BlinkLed (byte Port, int Duration) {
+   SetLed (Port, ON);
    delay (Duration);
-   SetLed (Port, !On);
+   SetLed (Port, OFF);
    }
 
 
@@ -103,12 +106,38 @@ static void ProcessSerialInput (char c) {
 
 
 void setup () {
-   Serial.begin(2400);
-   ShowHelp();
+   //Serial.begin(2400);
+   //ShowHelp();
+   pinMode(LED_P1D_PIN, OUTPUT);     
+   SetLed (LED_P1D_PIN, OFF);
+   pinMode(LED_P1A_PIN, OUTPUT);     
+   SetLed (LED_P1A_PIN, OFF);
+   pinMode(LED_P2D_PIN, OUTPUT);     
+   SetLed (LED_P2D_PIN, OFF);
+   pinMode(LED_P2A_PIN, OUTPUT);     
+   SetLed (LED_P2A_PIN, OFF);
+   pinMode(LED_P3D_PIN, OUTPUT);     
+   SetLed (LED_P3D_PIN, OFF);
+   pinMode(LED_P3A_PIN, OUTPUT);     
+   SetLed (LED_P3A_PIN, OFF);
+   pinMode(LED_P4D_PIN, OUTPUT);     
+   SetLed (LED_P4D_PIN, OFF);
+   pinMode(LED_P4A_PIN, OUTPUT);     
+   SetLed (LED_P4A_PIN, OFF);
    }
 
 
 void loop () {
+   /*
    if (Serial.available())
       ProcessSerialInput (Serial.read());
+   */
+   BlinkLed (LED_P1D_PIN, 500);
+   BlinkLed (LED_P1A_PIN, 500);
+   BlinkLed (LED_P2D_PIN, 500);
+   BlinkLed (LED_P2A_PIN, 500);
+   BlinkLed (LED_P3D_PIN, 500);
+   BlinkLed (LED_P3A_PIN, 500);
+   BlinkLed (LED_P4D_PIN, 500);
+   BlinkLed (LED_P4A_PIN, 500);
    }

@@ -1,0 +1,121 @@
+TM2025_Logger (R 1.0)
+Available commands:
+  c     - clear log
+  d     - display logged data
+  f     - fill the log buffer
+  l     - Start logging data w/o displaying it
+  m     - Start logging data & display it
+  !     - Stop logging
+  ?     - Dump program info
+Cleared log
+Logging w/o monitor
+Processing sample: A15.0V13.0
+Processing sample: A15.0V13.0
+A=3000, V=30
+Loggging data: 47, 112, 60
+Processing sample: A-15.0V10.5
+Processing sample: A-15.0V10.5
+A=0, V=5
+Loggging data: 1, 0, 10
+Processing sample: A1.34V12.5
+Processing sample: A1.36V12.7
+A=1635, V=26
+Loggging data: 25, 198, 52
+Processing sample: A1.30V12.0
+Processing sample: A1.34V12.8
+A=1632, V=24
+Loggging data: 25, 192, 48
+Processing sample: A1.30V12.0
+Processing sample: A1.33V12.7
+A=1632, V=24
+Loggging data: 25, 192, 48
+Processing sample: A7.01V11.9
+Processing sample: A6.36V11.8
+A=2169, V=19
+Loggging data: 33, 242, 38
+Processing sample: A-1.30V12.0
+Processing sample: A-1.34V11.9
+A=1368, V=20
+Loggging data: 21, 176, 40
+Processing sample: A0.30V12.0
+Processing sample: A-1.33V12.1
+A=1449, V=21
+Loggging data: 23, 82, 42
+Processing sample: A10.3V11.5
+Processing sample: A13.6V11.7
+A=2700, V=16
+Loggging data: 43, 24, 32
+Processing sample: A-10.1V11.4
+Processing sample: A-12.8V11.8
+A=350, V=16
+Loggging data: 5, 188, 32
+Processing sample: A4.23V11.6
+Processing sample: A6.01V11.6
+A=2012, V=16
+Loggging data: 31, 184, 32
+Processing sample: A8.01V11.9
+Processing sample: A10.4V11.8
+A=2421, V=19
+Loggging data: 37, 234, 38
+Processing sample: A-1.30V12.0
+Processing sample: A2.15V11.8
+A=1543, V=19
+Loggging data: 25, 14, 38
+Processing sample: A1.21V12.0
+Processing sample: A-2.33V12.1
+A=1444, V=21
+Loggging data: 23, 72, 42
+Stopped logging
+LogBfr[7] = 47
+LogBfr[8] = 112
+LogBfr[9] = 60
+LogBfr[10] = 1
+LogEntry at 7 is  A 15.0   V 13.0
+LogBfr[11] = 0
+LogBfr[12] = 10
+LogBfr[13] = 25
+LogEntry at 10 is  A -15.0   V 10.5
+LogBfr[14] = 198
+LogBfr[15] = 52
+LogBfr[16] = 25
+LogEntry at 13 is  A 1.35   V 12.6
+LogBfr[17] = 192
+LogBfr[18] = 48
+LogBfr[19] = 25
+LogEntry at 16 is  A 1.32   V 12.4
+LogBfr[20] = 192
+LogBfr[21] = 33
+LogEntry at 19 is  A 1.32   V 12.4
+LogBfr[22] = 242
+LogBfr[23] = 38
+LogBfr[24] = 21
+LogEntry at 21 is  A 6.69   V 11.9
+LogBfr[25] = 176
+LogBfr[26] = 40
+LogBfr[27] = 23
+LogEntry at 24 is  A -1.32   V 12.0
+LogBfr[28] = 82
+LogBfr[29] = 42
+LogBfr[30] = 43
+LogEntry at 27 is  A -0.51   V 12.1
+LogBfr[31] = 24
+LogBfr[32] = 32
+LogBfr[33] = 5
+LogEntry at 30 is  A 12.0   V 11.6
+LogBfr[34] = 188
+LogBfr[35] = 31
+LogEntry at 33 is  A -11.5   V 11.6
+LogBfr[36] = 184
+LogBfr[37] = 37
+LogEntry at 35 is  A 5.12   V 11.6
+LogBfr[38] = 234
+LogBfr[39] = 38
+LogBfr[40] = 25
+LogEntry at 37 is  A 9.21   V 11.9
+LogBfr[41] = 14
+LogBfr[42] = 23
+LogEntry at 40 is  A 0.43   V 11.9
+LogBfr[43] = 72
+LogBfr[44] = 42
+LogEntry at 42 is  A -0.56   V 12.1
+
