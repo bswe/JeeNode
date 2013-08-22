@@ -1,0 +1,17 @@
+
+LED tester 1.0
+<nn> d - display LED program nn
+    0 = instant off
+    1 = instant warm white
+    2 = instant cool white
+    3 = 5s off
+    4 = 5s warm white
+    5 = 5s cool white
+    6 = 5s red -> green -> blue
+    9 = instant faint red'ish yellow
+   10 = 5s red -> blue -> green
+   13 = 1s red -> green -> blue
+   16 = .5s instant red -> blue -> green
+   19 = .3s instant red -> blue -> green
+   22 = 1s red -> blue -> green
+   25 = .5s red -> blue -> green

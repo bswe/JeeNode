@@ -30,12 +30,7 @@ DeviceI2C LowBank (EepromPort, 0x50);
 DeviceI2C HighBank (EepromPort, 0x51);
 
  char HELP_TEXT[] PROGMEM = 
-    "TM2025_Logger (R 1.0)\n"
-    "Available commands:" "\n"
-    "  d     - display logged data" "\n"
-    "  l     - log data" "\n"
-    "  s     - stop logging data" "\n"
-    "  m     - display data from monitor" "\n"
+    "LED Blinker test program (blinks all LEDs)\n"
 ;
 
 static char SerialInputBfr[INPUT_BFR_SIZE];
@@ -106,8 +101,8 @@ static void ProcessSerialInput (char c) {
 
 
 void setup () {
-   //Serial.begin(2400);
-   //ShowHelp();
+   Serial.begin(57000);
+   ShowHelp();
    pinMode(LED_P1D_PIN, OUTPUT);     
    SetLed (LED_P1D_PIN, OFF);
    pinMode(LED_P1A_PIN, OUTPUT);     
